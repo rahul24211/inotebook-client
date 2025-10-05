@@ -57,10 +57,10 @@ const Todolist = () => {
                                         <li>{item}</li>
                                         <div>
                                             <button onClick={() => (handleUpdate(key))} className='btn btn-primary'>Edite</button>
-                                        <button onClick={() => (handleRemove(key))} className='btn btn-danger ms-2'>dalete</button>
+                                            <button onClick={() => (handleRemove(key))} className='btn btn-danger ms-2'>dalete</button>
                                         </div>
                                     </ul>)
-                                    
+
                             })}
                     </div>
                     <div className='col-md-4'>
@@ -68,7 +68,7 @@ const Todolist = () => {
                         <input disabled={activity.length === 40} value={activity} onChange={(e) => { setActivity(e.target.value) }} className='form-control' type='text' placeholder='type..' />
                         {warning && <p>Please Enter A Item</p>}
                         {dupilicate && <p>This Item Is Already Exits</p>}
-                        <button  onClick={handleAdd} className='btn btn-success form-control my-2'>{editeIndex !== null ? 'Update list' : 'Create list'}</button>
+                        <button onClick={handleAdd} className='btn btn-success form-control my-2'>{editeIndex !== null ? 'Update list' : 'Create list'}</button>
                     </div>
                 </div>
             </div>
@@ -77,3 +77,5 @@ const Todolist = () => {
 }
 
 export default Todolist
+
+

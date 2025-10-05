@@ -25,22 +25,15 @@ export const reg = async (req, res) => {
         }
         const salt = await bcrypt.genSalt(10)
         const hashedPass = await bcrypt.hash(password, salt)
-        console.log(hashedPass);
-
         const newUser = await User.create({ name, email, password: hashedPass })
-
         const JWT_SECRET_STRING = 'this is a secret string of twt token'
-
         const data = {
             user: {
                 id: newUser._id
             }
-
         }
 
         const authToken = jwt.sign(data, JWT_SECRET_STRING)
-
-
         success = true
         return res.json({
             status: 201,
@@ -93,7 +86,8 @@ export const login = async (req, res) => {
         return res.json({
             status: 200,
             message: 'login successfully',
-            authToken: authToken, success
+            authToken: authToken, success,
+           apiData : checkUser.name
         })
     } catch (error) {
         console.error(error)

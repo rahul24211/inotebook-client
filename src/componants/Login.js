@@ -1,48 +1,51 @@
 import { Button, Transition } from '@mantine/core'
-import React, { use, useContext, useEffect, useState } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
-import NoteCard from './NoteCard'
+import { useContext, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import NoteContext from '../pages/notes/noteContext'
+import LogContext from '../pages/notes/logContext'
 
 const Login = () => {
 
-    const context = useContext(NoteContext)
 
-    const { showAlert } = context
-
-    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const context = useContext(NoteContext)
+    const { showAlert } = context
+
+
+    const logContext = useContext(LogContext)
+    const { log } = logContext
+
+
+
     const [opened, setOpened] = useState(false)
 
     const navigate = useNavigate()
+
     useEffect(() => {
         setOpened(true)
     }, [])
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        const formData = { email, password }
-        fetch('http://localhost:5000/api/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        }).then((res) => { return res.json() }).then((data) => {
-            console.log(data)
-            showAlert(data.message, 'danger')
-            if (data.success) {
-                localStorage.setItem('token', data.authToken)
-                showAlert(data.message, 'success')
-                navigate('/')
-            } else {
-                navigate('/login')
-            }
-        })
-        setName('')
-        setEmail('')
-        setPassword('')
+        const res = await log(email, password)
+
+        if (res.success) {
+            showAlert(res.message, 'success')
+            navigate('/')
+        } else {
+            showAlert(res.message, 'danger')
+            setEmail('')
+            setPassword('')
+
+            navigate('/login')
+
+        }
+
+
+
     }
     return (
 
@@ -52,14 +55,14 @@ const Login = () => {
             duration={400}
             timingFunction="ease"
         >
- 
+
             {(styles) => <div style={styles}> <div className='container my-5'>
                 <div className='row justify-content-between'>
                     <div className='col-md-6' id='login'>
                         <form className='' onSubmit={handleSubmit}>
                             <h1 className='text-center'>Login Form</h1>
                             <input value={email} onChange={(e) => { setEmail(e.target.value) }} className='input form-control my-3 p-2' type='email' placeholder='Email' />
-                            <input value={password} onChange={(e) => { setPassword(e.target.value) }} className='input form-control my-3 p-2' type='password' placeholder='password' />
+                            <input value={password} onChange={(e) => { setPassword(e.target.value) }} className='input form-control my-3 p-2' type='password' placeholder='Password' />
                             <Button type='submit' fullWidth
                                 variant="gradient"
                                 gradient={{ from: 'teal', to: 'blue', deg: 90 }}

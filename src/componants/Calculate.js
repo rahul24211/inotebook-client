@@ -8,7 +8,7 @@ const Calculate = () => {
         setInput(input + e.target.value)
     }
 
-    const handleDeleteOne = (e) => {
+    const handleDeleteOne = () => {
         setInput(input.slice(0, -1))
     }
     const handleClear = () => {
@@ -33,13 +33,9 @@ const Calculate = () => {
             } else if (input.includes('*')) {
                 const parts = input.split('*')
                 console.log(parts);
-
                 result = (parseFloat(parts) * parseFloat(parts[1])).toString()
-
                 console.log(parseFloat(parts));
                 console.log(parseFloat(parts[1]));
-
-
             }
             else if (input.includes('/')) {
                 const parts = input.split('/')
@@ -86,10 +82,7 @@ const Calculate = () => {
                     <button value={'0'} onClick={handleClick} className='btn btn-primary text-dark'>0</button>
                     <button value={'.'} onClick={handleClick} className='btn btn-primary text-dark'>.</button>
                     <button className='btn btn-danger text-dark'>🤖</button>
-
                 </div>
-
-
             </div>
         </div>
     )

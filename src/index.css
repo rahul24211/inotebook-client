@@ -88,7 +88,7 @@ body {
 
 /* --------------- */
 
-#nav{
+#nav {
   background-color: #000000c8;
   border: 2px solid rgba(255, 255, 255, 0.673);
 }
@@ -106,7 +106,8 @@ body {
 
 .input,
 .regButton {
-  height: 2.5rem;
+    height: 2.5rem;
+  width: 20rem;
   border-radius: 20px;
   margin-top: 5px;
 }
@@ -142,9 +143,7 @@ body {
   margin-left: 5px;
 }
 
-#regPart{
-  
-}
+
 
 #login {
   background: linear-gradient(to right, rgba(197, 171, 20, 0.63), rgba(22, 135, 180, 0.707));
@@ -154,7 +153,8 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  box-shadow: 2px 5px 3px 3px black
+  box-shadow: 2px 5px 3px 3px black;
+
 }
 
 .input,
@@ -178,13 +178,13 @@ body {
   text-align: center;
 }
 
-#startPageHeading{
+#startPageHeading {
   font-size: 2.7rem;
   font-family: fantasy;
   text-align: center
 }
 
-.startPagePara{
+.startPagePara {
   text-align: center;
   font-family: cursive;
 }

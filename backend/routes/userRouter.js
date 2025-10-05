@@ -13,7 +13,7 @@ userRouter.post('/register', [
 ], reg)
 userRouter.post('/login', login)
 
-userRouter.post('/getuser',getUsers ,getUser)
+userRouter.post('/getuser', getUsers, getUser)
 
 
 

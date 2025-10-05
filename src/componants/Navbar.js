@@ -1,24 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import ToggleContext from '../pages/notes/toggleContext'
+import LogContext from '../pages/notes/logContext'
+
 const Navbar = () => {
 
+
+
+
     const toggleMode = useContext(ToggleContext)
-
     const { theme, setTheme } = toggleMode
-
     const navigate = useNavigate()
+
+    const user = localStorage.getItem("name")
+    console.log(user);
+
 
     const handleLogout = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('name')
         navigate("/login")
     }
-
 
     const handleToggle = () => {
         setTheme(theme === 'light' ? 'dark' : 'light')
     }
-
     const location = useLocation()
     useEffect(() => {
     }, [location])
@@ -26,7 +32,7 @@ const Navbar = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark" id='nav'>
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="#">Inotebook</Link>
+                    <Link id='logo' className="navbar-brand" to="#">Inotebook</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
@@ -38,28 +44,30 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} to="/about">about</Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === '/calculater' ? 'active' : ''}`} to="/calculater">Calculater</Link>
-                            </li>
-                            <li className="nav-item">
+                            </li> */}
+                            {/* <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === '/todolist' ? 'active' : ''}`} to="/todolist">Todo-List</Link>
-                            </li>
-                            <li className="nav-item">
+                            </li> */}
+                            {/* <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === '/counter' ? 'active' : ''}`} to="/counter">Counter</Link>
-                            </li>
-                            <li className="nav-item">
+                            </li> */}
+                            {/* <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === '/debouncingSesrch' ? 'active' : ''}`} to="/debouncingSesrch">debouncing-Sesrch</Link>
-                            </li>
+                            </li> */}
                         </ul>
                         {!localStorage.getItem("token") ? (
                             <div>
-                                <Link to='/login'><button className='btn btn-primary'>Sign-IN</button></Link>
-                                <Link to='/register'><button className='btn btn-success ms-2'>Sign-Up</button></Link>
-                                <button onClick={handleToggle} className={`btn btn-${theme === 'dark' ? 'info' : 'secondary'} ms-2`} >{theme === 'light' ? 'Dark' : 'Light'}</button>
+
+                                <Link to='/login'><button className='navBtn btn btn-primary'>Sign-IN</button></Link>
+                                <Link to='/register'><button className='navBtn btn btn-success ms-2'>Sign-Up</button></Link>
+                                <button onClick={handleToggle} className={`navBtn btn btn-${theme === 'dark' ? 'info' : 'secondary'} ms-2`} >{theme === 'light' ? 'Dark' : 'Light'}</button>
                             </div>
-                        ) : <div>
-                            <button onClick={handleLogout} className='btn btn-secondary'>Log-Out</button>
-                            <button onClick={handleToggle} className={`btn btn-${theme === 'dark' ? 'info' : 'dark'} ms-2`} >{theme === 'light' ? 'Dark' : 'Light'}</button>
+                        ) : <div className='d-flex gap-2'>
+                            <button disabled className='btn btn-info text-light text-capitalize rounded '>{user}</button>
+                            <button onClick={handleLogout} className='navBtn btn btn-sm btn-secondary'>Log-Out</button>
+                            <button onClick={handleToggle} className={`navBtn btn btn-${theme === 'dark' ? 'info' : 'dark'}`} >{theme === 'light' ? 'Dark' : 'Light'}</button>
                         </div>
                         }
                     </div>
