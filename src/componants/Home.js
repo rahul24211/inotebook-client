@@ -15,6 +15,7 @@ const Home = () => {
                 transition="pop"
                 duration={400}
                 timingFunction="ease"
+            
             >
                 {(styles) => <div style={styles}><div className='container'>
                     <div className='row'>

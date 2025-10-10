@@ -58,36 +58,40 @@ const Login = () => {
 
             {(styles) => <div style={styles}> <div className='container my-5'>
                 <div className='row justify-content-between'>
-                    <div className='col-md-6' id='login'>
-                        <form className='' onSubmit={handleSubmit}>
-                            <h1 className='text-center'>Login Form</h1>
-                            <input value={email} onChange={(e) => { setEmail(e.target.value) }} className='input form-control my-3 p-2' type='email' placeholder='Email' />
-                            <input value={password} onChange={(e) => { setPassword(e.target.value) }} className='input form-control my-3 p-2' type='password' placeholder='Password' />
-                            <Button type='submit' fullWidth
-                                variant="gradient"
-                                gradient={{ from: 'teal', to: 'blue', deg: 90 }}
-                                className='logButton'
-                            >
-                                Sign-IN
-                            </Button>
-                            <Link className='text-decoration-none' to="/register"><Button type='submit' fullWidth
-                                variant="gradient"
-                                gradient={{ from: 'teal', to: 'green', deg: 90 }}
-                                mt={4}
-                                className='logButton'
-                            >
-                                Sign-Up
-                            </Button> </Link>
-                        </form>
-                    </div>
+
                     <div className='col-md-6 my-5' >
-                        <div className='my-5'>
+                        <div className=''>
                             <h1 id='logHeading1'>welcome back!</h1>
                             <p id='logHeading2'>you can sign in to access with your exisiting account.</p>
                         </div>
                     </div>
-                </div>
 
+                    <div className='col-md-6'  >
+                        <div id='login'>
+                            <h1 id='loginFormHeading' className='text-center'>Login Form </h1>
+                            <form id='form' className='' onSubmit={handleSubmit}>
+                                <input value={email} onChange={(e) => { setEmail(e.target.value) }} className='inputt form-control' type='email' placeholder='Email' required />
+                                <input value={password} onChange={(e) => { setPassword(e.target.value) }} className='inputt form-control' type='password' placeholder='Password' required />
+                                <Button type='submit' fullWidth
+                                    variant="gradient"
+                                    gradient={{ from: 'teal', to: 'blue', deg: 90 }}
+                                    className='logButton'
+                                >
+                                    Sign-IN
+                                </Button>
+                                <Link className='text-decoration-none' to="/register"><Button type='submit' fullWidth
+                                    variant="gradient"
+                                    gradient={{ from: 'teal', to: 'green', deg: 90 }}
+                                    mt={4}
+                                    className='logButton'
+                                >
+                                    Sign-Up
+                                </Button> </Link>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
 
             </div></div>}
         </Transition>

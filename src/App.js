@@ -16,6 +16,7 @@ import ToggleStateContext from './pages/notes/toggleStateContext'
 import Alert from './componants/Alert'
 
 import LogStateContext from './pages/notes/logStateContext'
+import Footer from './componants/Footer'
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
 
 
             </Routes>
+            <Footer/>
           </Router>
         </StateContext>
       </ToggleStateContext>

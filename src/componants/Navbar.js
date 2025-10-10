@@ -30,7 +30,8 @@ const Navbar = () => {
     }, [location])
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark" id='nav'>
+            <nav className="navbar navbar-expand-lg navbar-dark position-fixed" id='nav'
+                >
                 <div className="container-fluid">
                     <Link id='logo' className="navbar-brand" to="#">Inotebook</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
