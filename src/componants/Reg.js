@@ -23,7 +23,7 @@ const Reg = () => {
         e.preventDefault()
         const formData = { name, email, password }
 
-        fetch('http://localhost:5000/api/auth/register', {
+        fetch(`${process.env.REACT_APP_API_PORT}/api/auth/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)

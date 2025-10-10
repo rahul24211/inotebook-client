@@ -6,7 +6,7 @@ const LogStateContext = (props) => {
     const [user, setUser] = useState('')
     const log = async (email, password) => {
         const formData = { email, password }
-        const responce = await fetch('http://localhost:5000/api/auth/login', {
+        const responce = await fetch(`${process.env.REACT_APP_API_PORT}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
