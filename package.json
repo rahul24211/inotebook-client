@@ -2,6 +2,7 @@
   "name": "inotebook",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://inotebook-client-pi.vercel.app",
   "dependencies": {
     "@mantine/core": "^8.2.5",
     "@mantine/hooks": "^8.2.5",
