@@ -68,7 +68,7 @@ const Navbar = () => {
                         ) : <div className='d-flex gap-2'>
                             <span id='user' className='text-capitalize'>{user}</span>
                             <button onClick={handleLogout} className='navBtn btn btn-sm btn-secondary'>Log-Out</button>
-                            <button onClick={handleToggle} className={`navBtn btn btn-${theme === 'dark' ? 'info' : 'dark'}`} >{theme === 'light' ? 'Dark' : 'Light'}</button>
+                            <button onClick={handleToggle} className={`border-light navBtn btn btn-${theme === 'dark' ? 'info' : 'dark'}`} >{theme === 'light' ? 'Dark' : 'Light'}</button>
                         </div>
                         }
                     </div>
