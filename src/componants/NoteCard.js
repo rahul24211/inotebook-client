@@ -9,6 +9,7 @@ const NoteCard = (props) => {
 
 
 
+
     const handleDelete = async () => {
         const res = await deleteNotes(props.note._id)
         console.log(res);
@@ -25,7 +26,7 @@ const NoteCard = (props) => {
 
         <div className='card my-3 shodow card-animate '>
             <div className='card-body'>
-                
+
                 <h5 className='card-title text-capitalize'>
                     <strong>Title : </strong>{props.note?.title}</h5>
                 <p className='card-text text-capitalize'> <strong>Description : </strong>{props.note?.description}</p>

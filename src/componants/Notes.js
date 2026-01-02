@@ -8,6 +8,8 @@ const Notes = () => {
     const context = useContext(NoteContext)
     const { notes, getAllNotes, } = context
 
+
+
     const [editetable, setEditetable] = useState(null)
     const navigate = useNavigate()
 

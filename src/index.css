@@ -264,24 +264,25 @@ body {
   box-shadow: 2px 1px 2px #5ba5ae;
   font-family: sans-serif;
 
-  
-  
+
+
 }
 
-#user{
-  background-color: rgba(126, 106, 106, 0.764);
+#user {
+  background-color: rgba(61, 34, 213, 0.723);
   height: 2.5em;
-  width: 5em;
+  width: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
   border: 5px solid rgb(91, 145, 239);
+
 }
 
-#skills:hover{
-border: 2px solid gray;
-font-size: 1.5em;
-transition: all 1s ease-in-out;
-transform: rotate(360deg);
+#skills:hover {
+  border: 2px solid gray;
+  font-size: 1.5em;
+  transition: all 1s ease-in-out;
+  transform: rotate(360deg);
 }

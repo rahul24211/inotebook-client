@@ -17,6 +17,7 @@ import Alert from './componants/Alert'
 
 import LogStateContext from './pages/notes/logStateContext'
 import Footer from './componants/Footer'
+import Profile from './componants/Profile'
 
 
 const App = () => {
@@ -38,10 +39,11 @@ const App = () => {
               <Route path='/notecard' element={<NoteCard />} />
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
+              <Route path='/profile' element={<Profile />} />
 
 
             </Routes>
-            <Footer/>
+            <Footer />
           </Router>
         </StateContext>
       </ToggleStateContext>
